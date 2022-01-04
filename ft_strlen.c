@@ -6,13 +6,13 @@
 /*   By: dperez <dperez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 20:02:49 by dperez            #+#    #+#             */
-/*   Updated: 2022/01/03 20:25:15 by dperez           ###   ########.fr       */
+/*   Updated: 2022/01/04 16:30:07 by dperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-	int	len;
+	size_t	len;
 
 	len = 0;
 	while (s[len])
