@@ -6,21 +6,20 @@
 /*   By: dperez <dperez@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 20:44:25 by dperez            #+#    #+#             */
-/*   Updated: 2022/01/04 21:25:54 by dperez           ###   ########.fr       */
+/*   Updated: 2022/01/06 00:54:29 by dperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include"libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*temp;
 
 	temp = s;
-	if (n == 0)
-		return ;
 	while (n > 0)
 	{
 		*temp = 0;
-		s++;
+		temp++;
 		n--;
 	}
 }
