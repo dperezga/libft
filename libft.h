@@ -6,13 +6,14 @@
 /*   By: dperez <dperez@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 18:21:50 by dperez            #+#    #+#             */
-/*   Updated: 2022/01/06 21:51:14 by dperez           ###   ########.fr       */
+/*   Updated: 2022/01/07 06:00:35 by dperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include<stdlib.h>
+# include<stdint.h>
 
 size_t	ft_strlen(const char *s);
 int		ft_isalpha(int c);
