@@ -6,7 +6,7 @@
 /*   By: dperez <dperez@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 18:21:50 by dperez            #+#    #+#             */
-/*   Updated: 2022/01/11 04:17:17 by dperez           ###   ########.fr       */
+/*   Updated: 2022/01/11 06:57:30 by dperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,6 @@ size_t	ft_strlcpy(char *restrict dst,
 			const char *restrict src, size_t dstsize);
 size_t	ft_strlcat(char *restrict dst,
 			const char *restrict src, size_t dstsize);
+int		ft_toupper(int c);
+int		ft_tolower(int c);
 #endif
