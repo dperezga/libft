@@ -6,7 +6,7 @@
 /*   By: dperez <dperez@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 01:49:57 by dperez            #+#    #+#             */
-/*   Updated: 2022/01/11 01:56:25 by dperez           ###   ########.fr       */
+/*   Updated: 2022/01/11 09:14:49 by dperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	{
 		if (*tmp_s1 != *tmp_s2)
 			return (*tmp_s1 - *tmp_s2);
-		s1++;
-		s2++;
+		tmp_s1++;
+		tmp_s2++;
 		n--;
 	}
 	return (0);
