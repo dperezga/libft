@@ -6,7 +6,7 @@
 /*   By: dperez <dperez@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:13:21 by dperez            #+#    #+#             */
-/*   Updated: 2022/01/12 16:43:45 by dperez           ###   ########.fr       */
+/*   Updated: 2022/01/13 00:00:26 by dperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_iswspace(char c)
 
 int	ft_sign(const char *str)
 {
-	if (*str == '+')
+	if (*str == '+' || ft_isdigit(*str))
 		return (1);
 	else if (*str == '-')
 		return (-1);
@@ -41,9 +41,9 @@ int	ft_atoi(const char *str)
 	while (ft_iswspace(*tmp_str))
 		tmp_str++;
 	sign = ft_sign(tmp_str);
-	if (!ft_isdigit(*(++tmp_str)))
-		return (0);
-	while (*tmp_str)
+	if (*tmp_str == '-' || *tmp_str == '+')
+		tmp_str++;
+	while (*tmp_str && ft_isdigit(*tmp_str))
 	{
 		num *= 10;
 		num += (*tmp_str - 48);
