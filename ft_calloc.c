@@ -6,7 +6,7 @@
 /*   By: dperez <dperez@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 17:05:40 by dperez            #+#    #+#             */
-/*   Updated: 2022/01/12 17:09:56 by dperez           ###   ########.fr       */
+/*   Updated: 2022/01/13 00:34:27 by dperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	*ft_calloc(size_t count, size_t size)
 	allocated_mem = malloc(count * size);
 	if (allocated_mem == NULL)
 		return (NULL);
-	ft_bzero(allocated_mem, size);
+	ft_bzero(allocated_mem, size * count);
 	return (allocated_mem);
 }
