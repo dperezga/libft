@@ -6,13 +6,13 @@
 /*   By: dperez <dperez@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:13:21 by dperez            #+#    #+#             */
-/*   Updated: 2022/01/13 00:00:26 by dperez           ###   ########.fr       */
+/*   Updated: 2022/01/12 18:31:53 by dperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-int	ft_iswspace(char c)
+static int	ft_iswspace(char c)
 {
 	if (c == '\t' || c == '\n' || c == '\v'
 		|| c == '\f' || c == '\r' || c == ' ')
@@ -20,7 +20,7 @@ int	ft_iswspace(char c)
 	return (0);
 }
 
-int	ft_sign(const char *str)
+static int	ft_sign(const char *str)
 {
 	if (*str == '+' || ft_isdigit(*str))
 		return (1);
