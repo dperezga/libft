@@ -6,7 +6,7 @@
 /*   By: dperez <dperez@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 19:25:45 by dperez            #+#    #+#             */
-/*   Updated: 2022/01/12 20:17:08 by dperez           ###   ########.fr       */
+/*   Updated: 2022/01/13 03:47:49 by dperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*end;
 
 	begin = (char *)s1;
-	end = begin + ft_strlen(s1);
+	end = begin + ft_strlen(s1) - 1;
 	trimmed_str = (char *)ft_calloc(ft_strlen(s1), sizeof(trimmed_str));
 	if (trimmed_str == NULL)
 		return (NULL);
 	while (*begin)
 	{
 		if (ft_isin(set, *begin))
-			s1++;
+			begin++;
 		else
 			break ;
 	}
@@ -48,6 +48,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 		else
 			break ;
 	}
-	ft_strlcpy(trimmed_str, begin, end - begin);
+	ft_strlcpy(trimmed_str, begin, (end - begin) + 2);
 	return (trimmed_str);
 }
