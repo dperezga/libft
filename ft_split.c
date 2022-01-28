@@ -15,7 +15,7 @@
 
 static size_t	ft_len(char const *s, char c)
 {
-	size_t len;
+	size_t	len;
 
 	len = 0;
 	while (s[len] && s[len] != c)
@@ -26,7 +26,7 @@ static size_t	ft_len(char const *s, char c)
 static size_t	ft_chunks(char const *s, char c)
 {
 	size_t	nb_chunks;
-	char *tmp_s;
+	char	*tmp_s;
 
 	nb_chunks = 0;
 	tmp_s = (char *)s;
@@ -46,7 +46,6 @@ static size_t	ft_chunks(char const *s, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	printf("%s has %ld words\n", s, ft_chunks(s, c));
 	char	**splitted;
 	char	*tmp_s;
 	size_t	nb_words;
@@ -62,11 +61,10 @@ char	**ft_split(char const *s, char c)
 	{
 		splitted[k] = (char *)malloc(ft_len(tmp_s, c) * sizeof(char));
 		ft_memmove(splitted[k], tmp_s, ft_len(tmp_s, c));
-		printf("*s: %c and len: %ld\n", *tmp_s, ft_len(tmp_s, c));
 		tmp_s = ft_strchr(tmp_s, c);
 		while (tmp_s != NULL && *tmp_s && *tmp_s == c)
 			tmp_s++;
 		k++;
 	}
-	return (splitted);	
+	return (splitted);
 }
