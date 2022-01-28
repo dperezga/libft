@@ -59,8 +59,9 @@ char	**ft_split(char const *s, char c)
 		tmp_s++;
 	while (tmp_s != NULL && nb_words - k > 0 && *tmp_s)
 	{
-		splitted[k] = (char *)malloc(ft_len(tmp_s, c) * sizeof(char));
-		ft_memmove(splitted[k], tmp_s, ft_len(tmp_s, c));
+		//printf("nbw: %ld word: %ld \n", nb_words, k);
+		splitted[k] = (char *)malloc((ft_len(tmp_s, c) + 1) * sizeof(char));
+		ft_strlcpy(splitted[k], tmp_s, ft_len(tmp_s, c) + 1);
 		tmp_s = ft_strchr(tmp_s, c);
 		while (tmp_s != NULL && *tmp_s && *tmp_s == c)
 			tmp_s++;
