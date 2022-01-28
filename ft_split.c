@@ -53,14 +53,17 @@ char	**ft_split(char const *s, char c)
 
 	nb_words = ft_chunks(s, c);
 	splitted = (char **)malloc(nb_words * sizeof(char *));
+	if (splitted == NULL)
+		return(NULL);
 	k = 0;
 	tmp_s = (char *)s;
 	while (*tmp_s && *tmp_s == c)
 		tmp_s++;
 	while (tmp_s != NULL && nb_words - k > 0 && *tmp_s)
 	{
-		//printf("nbw: %ld word: %ld \n", nb_words, k);
 		splitted[k] = (char *)malloc((ft_len(tmp_s, c) + 1) * sizeof(char));
+		if (splitted[k] == NULL)
+			return (NULL);
 		ft_strlcpy(splitted[k], tmp_s, ft_len(tmp_s, c) + 1);
 		tmp_s = ft_strchr(tmp_s, c);
 		while (tmp_s != NULL && *tmp_s && *tmp_s == c)
