@@ -6,7 +6,7 @@
 /*   By: dperez <dperez@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:12:09 by dperez            #+#    #+#             */
-/*   Updated: 2022/02/07 17:21:41 by dperez           ###   ########.fr       */
+/*   Updated: 2022/03/04 01:37:16 by dperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ char	*ft_itoa(int n)
 		return ("0");
 	array_size = ft_arraysize((long int)n);
 	nb_array = (char *)malloc(sizeof(n) * array_size + 1);
-	ft_bzero(nb_array, array_size + 1);
 	if (nb_array == NULL)
 		return (NULL);
+	ft_bzero(nb_array, array_size + 1);
 	if (n < 0)
 	{
 		*nb_array = '-';

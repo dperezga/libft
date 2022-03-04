@@ -6,7 +6,7 @@
 /*   By: dperez <dperez@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 19:25:45 by dperez            #+#    #+#             */
-/*   Updated: 2022/01/13 03:47:49 by dperez           ###   ########.fr       */
+/*   Updated: 2022/03/04 01:47:50 by dperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,11 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	begin = (char *)s1;
 	end = begin + ft_strlen(s1) - 1;
-	trimmed_str = (char *)ft_calloc(ft_strlen(s1), sizeof(trimmed_str));
+	if (s1 == NULL)
+		return (NULL);
+	if (set == NULL)
+		return (ft_strdup(s1));
+	trimmed_str = (char *)ft_calloc(ft_strlen(s1), sizeof(char));
 	if (trimmed_str == NULL)
 		return (NULL);
 	while (*begin)

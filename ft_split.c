@@ -6,7 +6,7 @@
 /*   By: dperez <dperez@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 06:47:52 by dperez            #+#    #+#             */
-/*   Updated: 2022/01/20 07:02:51 by dperez           ###   ########.fr       */
+/*   Updated: 2022/03/03 21:44:10 by dperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	**ft_split(char const *s, char c)
 	nb_words = ft_chunks(s, c);
 	splitted = (char **)malloc(nb_words * sizeof(char *));
 	if (splitted == NULL)
-		return(NULL);
+		return (NULL);
 	k = 0;
 	tmp_s = (char *)s;
 	while (*tmp_s && *tmp_s == c)

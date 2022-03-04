@@ -6,7 +6,7 @@
 /*   By: dperez <dperez@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 17:21:49 by dperez            #+#    #+#             */
-/*   Updated: 2022/02/15 03:20:21 by dperez           ###   ########.fr       */
+/*   Updated: 2022/03/03 21:43:55 by dperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int		s_length;
+	int				s_length;
 	char			*f_s;
-	unsigned int		index;
+	unsigned int	index;
 
 	index = 0;
 	s_length = ft_strlen(s);
