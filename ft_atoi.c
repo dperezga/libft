@@ -6,7 +6,7 @@
 /*   By: dperez <dperez@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:13:21 by dperez            #+#    #+#             */
-/*   Updated: 2022/01/12 18:31:53 by dperez           ###   ########.fr       */
+/*   Updated: 2022/03/06 18:39:34 by dperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int	ft_sign(const char *str)
 
 int	ft_atoi(const char *str)
 {
-	int			num;
+	long		num;
 	int			sign;
 	const char	*tmp_str;
 
@@ -47,6 +47,10 @@ int	ft_atoi(const char *str)
 	{
 		num *= 10;
 		num += (*tmp_str - 48);
+		if (num > 2147483647 && sign == 1)
+			return (-1);
+		if (num > 2147483648 && sign == -1)
+			return (0);
 		tmp_str++;
 	}
 	return (num * sign);

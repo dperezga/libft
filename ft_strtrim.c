@@ -6,52 +6,57 @@
 /*   By: dperez <dperez@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 19:25:45 by dperez            #+#    #+#             */
-/*   Updated: 2022/03/04 01:47:50 by dperez           ###   ########.fr       */
+/*   Updated: 2022/03/06 20:36:16 by dperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-static int	ft_isin(const char *str, char c)
+static int	ft_getbegin(char const *s1, char const *set)
 {
-	while (*str)
+	size_t	i;
+
+	i = 0;
+	while (i < ft_strlen(s1))
 	{
-		if (*str == c)
-			return (1);
-		str++;
+		if (ft_strchr(set, s1[i]) == NULL)
+			break ;
+		i++;
 	}
-	return (0);
+	return (i);
+}
+
+static int	ft_getend(char const *s1, char const *set)
+{
+	size_t	i;
+
+	i = ft_strlen(s1) - 1;
+	while (i > 0)
+	{
+		if (ft_strchr(set, s1[i]) == 0)
+			break ;
+		i--;
+	}
+	return (i + 1);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*trimmed_str;
-	char	*begin;
-	char	*end;
+	int		begin;
+	int		end;
 
-	begin = (char *)s1;
-	end = begin + ft_strlen(s1) - 1;
 	if (s1 == NULL)
 		return (NULL);
 	if (set == NULL)
 		return (ft_strdup(s1));
-	trimmed_str = (char *)ft_calloc(ft_strlen(s1), sizeof(char));
+	begin = ft_getbegin(s1, set);
+	end = ft_getend(s1, set);
+	if (begin >= end)
+		return (ft_strdup(""));
+	trimmed_str = (char *)ft_calloc(end - begin + 1, sizeof(char));
 	if (trimmed_str == NULL)
 		return (NULL);
-	while (*begin)
-	{
-		if (ft_isin(set, *begin))
-			begin++;
-		else
-			break ;
-	}
-	while (*end)
-	{
-		if (ft_isin(set, *end))
-			end--;
-		else
-			break ;
-	}
-	ft_strlcpy(trimmed_str, begin, (end - begin) + 2);
+	ft_strlcpy(trimmed_str, s1 + begin, end - begin + 1);
 	return (trimmed_str);
 }
