@@ -6,13 +6,13 @@
 /*   By: dperez <dperez@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:12:09 by dperez            #+#    #+#             */
-/*   Updated: 2022/03/07 01:54:36 by dperez           ###   ########.fr       */
+/*   Updated: 2022/03/07 03:28:37 by dperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-long int	ft_absolut(long int nb)
+static long int	ft_absolut(long int nb)
 {
 	if (nb < 0)
 		return (-nb);

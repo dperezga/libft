@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dperez <dperez@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/07 01:56:55 by dperez            #+#    #+#             */
-/*   Updated: 2022/03/07 02:59:50 by dperez           ###   ########.fr       */
+/*   Created: 2022/03/07 02:44:42 by dperez            #+#    #+#             */
+/*   Updated: 2022/03/07 02:59:41 by dperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+void	ft_putstr_fd(char *s, int fd)
 {
-	unsigned int	index;
-
-	index = 0;
-	if (s == NULL || f == NULL)
+	if (s == NULL || fd < 0)
 		return ;
-	while (s[index])
-	{
-		f(index, &s[index]);
-		index++;
-	}	
+	write(fd, s, ft_strlen(s));
 }
