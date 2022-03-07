@@ -6,24 +6,28 @@
 /*   By: dperez <dperez@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 15:12:09 by dperez            #+#    #+#             */
-/*   Updated: 2022/03/04 01:37:16 by dperez           ###   ########.fr       */
+/*   Updated: 2022/03/07 01:54:36 by dperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdio.h>
 #include"libft.h"
 
-static size_t	ft_arraysize(long int n)
+long int	ft_absolut(long int nb)
 {
-	size_t	a_size;
+	if (nb < 0)
+		return (-nb);
+	else
+		return (nb);
+}
+
+static int	ft_arraysize(long int n)
+{
+	int	a_size;
 
 	a_size = 0;
-	if (n < 0)
-	{
-		n = -n;
-		a_size++;
-	}
-	while (n > 0)
+	if (n <= 0)
+		a_size = 1;
+	while (n != 0)
 	{
 		n /= 10;
 		a_size++;
@@ -34,28 +38,24 @@ static size_t	ft_arraysize(long int n)
 char	*ft_itoa(int n)
 {
 	char		*nb_array;
-	size_t		array_size;
+	int			array_size;
+	int			sign;
 
-	if (n == 0)
-		return ("0");
+	if (n < 0)
+		sign = -1;
+	else
+		sign = 1;
 	array_size = ft_arraysize((long int)n);
-	nb_array = (char *)malloc(sizeof(n) * array_size + 1);
+	nb_array = (char *)malloc(sizeof(char) * array_size + 1);
 	if (nb_array == NULL)
 		return (NULL);
-	ft_bzero(nb_array, array_size + 1);
-	if (n < 0)
+	nb_array[array_size] = '\0';
+	while (--array_size >= 0)
 	{
-		*nb_array = '-';
-		n = -n;
+		nb_array[array_size] = '0' + ft_absolut(n % 10);
+		n = ft_absolut(n / 10);
 	}
-	nb_array += array_size - 1;
-	while (n > 0)
-	{
-		*nb_array = 48 + (n % 10);
-		n /= 10;
-		nb_array--;
-	}
-	if (*nb_array == '-')
-		return (nb_array);
-	return (++nb_array);
+	if (sign == -1)
+		nb_array[0] = '-';
+	return (nb_array);
 }
