@@ -8,9 +8,12 @@ SRCS	= ./ft_isalpha.c ./ft_isdigit.c ./ft_isalnum.c \
 ./ft_strnstr.c ./ft_atoi.c ./ft_calloc.c ./ft_strdup.c \
 ./ft_substr.c ./ft_strjoin.c ./ft_strtrim.c ./ft_split.c \
 ./ft_itoa.c ./ft_strmapi.c ./ft_striteri.c ./ft_putchar_fd.c \
-./ft_putstr_fd.c ./ft_putendl_fd.c ./ft_putnbr_fd.c
+./ft_putstr_fd.c ./ft_putendl_fd.c ./ft_putnbr_fd.c ./ft_lstmap.c
 
+SRCS_B	= ./ft_lstnew.c ./ft_lstadd_front.c ./ft_lstsize.c ./ft_lstlast.c \
+			./ft_lstadd_back.c ./ft_lstdelone.c ./ft_lstclear.c ./ft_lstiter.c
 OBJS	= ${SRCS:.c=.o}
+OBJS_B	= ${SRCS_B:.c=.o}
 CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror
 RM		= rm -f
@@ -25,7 +28,7 @@ ${NAME}:	${OBJS}
 all:	${NAME}
 
 clean:
-		${RM} ${OBJS}
+		${RM} ${OBJS} ${OBJS_B}
 
 fclean:	clean
 		${RM} ${NAME}
@@ -33,7 +36,10 @@ fclean:	clean
 re:		fclean all
 
 so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) $(SRCS_B)
+	gcc -nostartfiles -shared -o libft.so $(OBJS) $(OBJS_B)
 
-.PHONY: all clean fclean re
+bonus: ${OBJS_B}
+		ar rc ${NAME} ${OBJS_B}
+
+.PHONY: all clean fclean re bonus

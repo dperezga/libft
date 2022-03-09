@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dperez <dperez@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/10 20:53:52 by dperez            #+#    #+#             */
-/*   Updated: 2022/03/09 05:27:14 by dperez           ###   ########.fr       */
+/*   Created: 2022/03/09 03:40:34 by dperez            #+#    #+#             */
+/*   Updated: 2022/03/09 05:34:13 by dperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsize)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	size_t	len_dst;
-	size_t	len_src;
-	int		index;
+	t_list	*node;
 
-	len_dst = ft_strlen(dst);
-	len_src = ft_strlen(src);
-	index = 0;
-	if (dstsize < len_dst + 1)
-		return (len_src + dstsize);
-	while (src[index] && len_dst + index < dstsize - 1)
+	if (lst == NULL || new == NULL)
+		return ;
+	if (*lst == NULL)
 	{
-		dst[len_dst + index] = src[index];
-		index++;
+		ft_lstadd_front(lst, new);
+		return ;
 	}
-	dst[len_dst + index] = '\0';
-	return (len_src + len_dst);
+	node = ft_lstlast(*lst);
+	node->next = new;
 }
