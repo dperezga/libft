@@ -6,7 +6,7 @@
 /*   By: dperez <dperez@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/11 00:15:37 by dperez            #+#    #+#             */
-/*   Updated: 2022/01/11 07:46:04 by dperez           ###   ########.fr       */
+/*   Updated: 2022/03/08 23:38:28 by dperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strrchr(const char *s, int c)
 	tmp_s = s + len;
 	while (len >= 0)
 	{
-		if (*tmp_s == c)
+		if (*tmp_s == (unsigned char)c)
 			return ((char *)tmp_s);
 		tmp_s--;
 		len--;
